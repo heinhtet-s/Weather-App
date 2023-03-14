@@ -1,5 +1,6 @@
 import { getIconName } from "@/constant/IconConstant";
 import { CurrentWeatherType, DailyWeatherType } from "@/dto/WeatherTypes";
+import Image from "next/image";
 import React from "react";
 
 const WeatherCard = ({
@@ -33,9 +34,11 @@ const WeatherCard = ({
         </p>
       </div>
       <div className="w-1/3">
-        <img
+        <Image
           alt="weather"
           className="w-full"
+          width={100}
+          height={100}
           src={`icons/${getIconName(data?.iconCode)[0]}.svg`}
         />
       </div>

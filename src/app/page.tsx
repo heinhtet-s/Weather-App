@@ -16,6 +16,7 @@ import {
   HourlyWeatherType,
   WeatherApiDataType,
 } from "@/dto/WeatherTypes";
+import Image from "next/image";
 
 const HourlyWeatherCard = ({ item }: { item: HourlyWeatherType }) => {
   return (
@@ -23,14 +24,15 @@ const HourlyWeatherCard = ({ item }: { item: HourlyWeatherType }) => {
       <div className="text-center">
         <h1 className="mb-2 font-bold text-md "> Today </h1>
         <h1 className="mb-2 text-sm font-bold ">
-          {" "}
           {new Intl.DateTimeFormat(undefined, {
             hour: "numeric",
-          }).format(item.timestamp)}{" "}
+          }).format(item.timestamp)}
         </h1>
       </div>
       <div>
-        <img
+        <Image
+          width={50}
+          height={50}
           alt="weather"
           className="w-10"
           src={`icons/${getIconName(item?.iconCode)[0]}.svg`}
@@ -99,13 +101,13 @@ export default function Home() {
     FetchWeather(lat, log)
       .then((data: WeatherApiDataType) => {
         setCurrentWeather(data.current);
-        console.log(data, "feefw");
         setForecast(data.daily);
         setForecastByHour(data.hourly);
         setLoading(false);
       })
       .catch((err) => {
         console.log(err);
+        setLoading(false);
       });
   };
   React.useEffect(() => {
