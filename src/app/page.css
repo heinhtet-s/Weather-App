@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.text-rotate {
+  animation: rotation 3s 1s infinite;
+  animation-fill-mode: forwards;
+}
