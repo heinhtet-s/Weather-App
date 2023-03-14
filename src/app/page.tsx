@@ -196,16 +196,18 @@ export default function Home() {
             <DailyForcast forecast={forecast} />
           </div>
 
-          <div
-            className="w-full h-full pt-0 pl-4 pr-3 overflow-y-auto lg:w-1/3 "
-            style={{ maxHeight: "880px" }}
-          >
+          <div className="w-full h-full pt-0 pl-4 pr-3 lg:w-1/3 ">
             <h3 className="mb-3 text-3xl font-bold ">
               Hourly Weather Forecast
             </h3>
-            {forecastByHour?.map((item: HourlyWeatherType, index: number) => {
-              return <HourlyWeatherCard key={index} item={item} />;
-            })}
+            <div
+              className="w-full h-full overflow-y-auto"
+              style={{ maxHeight: "880px" }}
+            >
+              {forecastByHour?.map((item: HourlyWeatherType, index: number) => {
+                return <HourlyWeatherCard key={index} item={item} />;
+              })}
+            </div>
           </div>
         </div>
       )}
